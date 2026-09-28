@@ -1,0 +1,637 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-main: #080E1E;
+  --bg-surface: #0C1730;
+  --bg-card: rgba(15, 27, 53, 0.88);
+  --primary: #10B981;
+  --secondary: #00E5FF;
+  --accent: #38BDF8;
+  --warning: #F59E0B;
+  --danger: #F43F5E;
+  --gov-gold: #E2B857;
+  --gov-saffron: #FF9933;
+  --gov-amber: #F59E0B;
+  --gov-dark-gold: #78350F;
+  --gov-stripe: #0F1F3D;
+  --border-cyan: rgba(56, 189, 248, 0.25);
+  --border-green: rgba(16, 185, 129, 0.25);
+  --border-gold: rgba(226, 184, 87, 0.28);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: #F1F5F9;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(56, 189, 248, 0.14), transparent 75%),
+    radial-gradient(ellipse 60% 40% at 100% 85%, rgba(16, 185, 129, 0.06), transparent 60%),
+    linear-gradient(to right, rgba(56, 189, 248, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.025) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+}
+
+/* Custom Scrollbar - Sleek Dark Aesthetic */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #060B18;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E2E4E;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #38BDF8;
+}
+
+/* Cyber Grid Background Pattern */
+.cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Glassmorphism Tactical Defense Panel */
+.glass-panel {
+  background: rgba(15, 27, 53, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+    0 12px 36px -8px rgba(0, 0, 0, 0.65),
+    0 0 16px rgba(56, 189, 248, 0.06);
+  border-radius: 12px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.14),
+    0 16px 40px -8px rgba(0, 0, 0, 0.75),
+    0 0 24px rgba(56, 189, 248, 0.16);
+}
+
+/* Real 3D Physical Depth, Elevation and Tactile Effects */
+.card-3d {
+  position: relative;
+  background: rgba(14, 26, 54, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: 14px;
+  box-shadow: 
+    0 1px 0 0 rgba(255, 255, 255, 0.12) inset,
+    0 0 0 1px rgba(56, 189, 248, 0.08) inset,
+    0 16px 36px -12px rgba(0, 0, 0, 0.7),
+    0 6px 14px -4px rgba(0, 0, 0, 0.5),
+    0 0 25px rgba(56, 189, 248, 0.05);
+  transform: translateZ(0);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease;
+}
+
+.card-3d:hover {
+  transform: translateY(-4px) translateZ(10px);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 
+    0 1px 0 0 rgba(255, 255, 255, 0.22) inset,
+    0 0 0 1px rgba(56, 189, 248, 0.2) inset,
+    0 24px 50px -12px rgba(0, 0, 0, 0.85),
+    0 10px 20px -4px rgba(0, 0, 0, 0.6),
+    0 0 35px rgba(56, 189, 248, 0.18);
+}
+
+.btn-3d {
+  position: relative;
+  box-shadow: 
+    0 1px 0 0 rgba(255, 255, 255, 0.22) inset,
+    0 -2px 0 0 rgba(0, 0, 0, 0.4) inset,
+    0 6px 16px rgba(0, 0, 0, 0.45);
+  transform: translateZ(0);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-3d:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 
+    0 1px 0 0 rgba(255, 255, 255, 0.35) inset,
+    0 -2px 0 0 rgba(0, 0, 0, 0.4) inset,
+    0 10px 22px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(56, 189, 248, 0.25);
+}
+
+.btn-3d:active {
+  transform: translateY(1.5px);
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.6) inset,
+    0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 3D Inset Surface */
+.surface-3d-inset {
+  background: rgba(9, 19, 40, 0.95);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.65),
+    inset 0 0 1px rgba(0, 0, 0, 0.8),
+    0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Tactical HUD Tile with 3D Depth & Tech Crosshairs */
+.hud-tile {
+  position: relative;
+  background: rgba(14, 26, 54, 0.92);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.10),
+    0 12px 28px -6px rgba(0, 0, 0, 0.65),
+    0 4px 10px -2px rgba(0, 0, 0, 0.4);
+  transform: translateZ(0);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hud-tile:hover {
+  transform: translateY(-3px) scale(1.01);
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.20),
+    0 20px 40px -8px rgba(0, 0, 0, 0.8),
+    0 0 28px rgba(56, 189, 248, 0.18);
+}
+
+.hud-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-top: 2px solid #38BDF8;
+  border-left: 2px solid #38BDF8;
+  pointer-events: none;
+}
+
+.hud-tile::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 7px;
+  height: 7px;
+  border-bottom: 2px solid #10B981;
+  border-right: 2px solid #10B981;
+  pointer-events: none;
+}
+
+/* Radar Sweep Animation */
+.radar-sweep {
+  animation: radar 4s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes radar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Glowing Neon Elements */
+.glow-text-green {
+  text-shadow: 0 0 12px rgba(0, 255, 136, 0.4);
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 12px rgba(0, 217, 255, 0.4);
+}
+
+.glow-box-green {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+}
+
+.glow-box-cyan {
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.15);
+}
+
+/* Scanline Overlay (Subtle) */
+.scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+}
+
+/* Sovereign Government & Defense Agency Classification Styling */
+.gov-classification-stripe {
+  background: repeating-linear-gradient(
+    45deg,
+    #0F1F3D,
+    #0F1F3D 12px,
+    #0A162C 12px,
+    #0A162C 24px
+  );
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+}
+
+.gov-classification-banner {
+  background: linear-gradient(90deg, #09152E 0%, #11234A 35%, #183366 50%, #11234A 65%, #09152E 100%);
+  color: #F1F5F9;
+  letter-spacing: 0.20em;
+  font-weight: 800;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.22);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.gov-watermark-stamp {
+  border: 1.5px dashed rgba(56, 189, 248, 0.4);
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.06);
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.15em;
+  position: relative;
+  overflow: hidden;
+}
+
+.gov-watermark-stamp::before {
+  content: 'STATUTORY COMPLIANT // SEC 65B';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  opacity: 0.07;
+  font-size: 2.2rem;
+  font-weight: 900;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.gov-seal-gold {
+  background: radial-gradient(circle, rgba(226, 184, 87, 0.18) 0%, rgba(10, 20, 42, 0.85) 70%, transparent 100%);
+  border: 1px solid rgba(226, 184, 87, 0.35);
+}
+
+.mnc-corner-bracket {
+  position: relative;
+}
+.mnc-corner-bracket::before {
+  content: '[';
+  position: absolute;
+  left: -6px;
+  top: -2px;
+  color: #38BDF8;
+  font-family: 'JetBrains Mono', monospace;
+}
+.mnc-corner-bracket::after {
+  content: ']';
+  position: absolute;
+  right: -6px;
+  top: -2px;
+  color: #10B981;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ============================================================
+   GOVERNMENT TOP CLASSIFICATION BAR
+   ============================================================ */
+.gov-top-classification-bar {
+  background: linear-gradient(90deg, 
+    #070E20 0%, 
+    #0D1C3D 15%, 
+    #142A58 50%, 
+    #0D1C3D 85%, 
+    #070E20 100%
+  );
+  color: #CBD5E1;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.gov-top-classification-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 120px,
+    rgba(56, 189, 248, 0.03) 120px,
+    rgba(56, 189, 248, 0.03) 121px
+  );
+  pointer-events: none;
+}
+
+.gov-top-classification-bar::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.08), transparent);
+  animation: gov-shimmer 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes gov-shimmer {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* ============================================================
+   GOVERNMENT SEAL / EMBLEM ELEMENTS
+   ============================================================ */
+.gov-seal-ring {
+  border: 1.5px solid rgba(226, 184, 87, 0.4);
+  box-shadow: 
+    0 0 0 1px rgba(56, 189, 248, 0.15),
+    0 0 18px rgba(56, 189, 248, 0.12),
+    inset 0 0 12px rgba(226, 184, 87, 0.08);
+  background: radial-gradient(circle, rgba(18, 33, 66, 0.75) 0%, rgba(10, 18, 38, 0.95) 70%);
+}
+
+.gov-emblem {
+  background: radial-gradient(circle at center,
+    rgba(56, 189, 248, 0.16) 0%,
+    rgba(14, 26, 52, 0.7) 50%,
+    transparent 80%
+  );
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.12), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* ============================================================
+   GOV-MNC FUSION KPI CARD
+   ============================================================ */
+.gov-kpi-card {
+  background: linear-gradient(135deg, rgba(15, 27, 53, 0.94) 0%, rgba(10, 19, 38, 0.96) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5);
+}
+
+.gov-kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6), transparent);
+}
+
+.gov-kpi-card:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.65), 0 0 20px rgba(56, 189, 248, 0.14);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   GOVERNMENT TOPBAR STYLING
+   ============================================================ */
+.gov-topbar {
+  background: linear-gradient(180deg, rgba(10, 19, 40, 0.98) 0%, rgba(7, 13, 28, 0.96) 100%);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.18);
+  box-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.05),
+    0 4px 22px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(18px);
+}
+
+/* ============================================================
+   GOVERNMENT STATUS PILL
+   ============================================================ */
+.gov-status-pill {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.32);
+  color: #38BDF8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.10em;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   GOVERNMENT FOOTER WATERMARK BAR
+   ============================================================ */
+.gov-footer-bar {
+  background: linear-gradient(90deg, 
+    rgba(7, 13, 28, 0.98) 0%,
+    rgba(12, 22, 44, 0.98) 50%,
+    rgba(7, 13, 28, 0.98) 100%
+  );
+  border-top: 1px solid rgba(56, 189, 248, 0.14);
+  color: rgba(148, 163, 184, 0.75);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+}
+
+/* ============================================================
+   TACTICAL CONFIDENCE / PROGRESS BAR
+   ============================================================ */
+.gov-confidence-bar {
+  background: linear-gradient(90deg, #0284C7, #00E5FF, #10B981);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
+  border-radius: 2px;
+}
+
+/* ============================================================
+   EXTRA GLOW UTILITIES
+   ============================================================ */
+.glow-text-gold  { text-shadow: 0 0 12px rgba(226, 184, 87, 0.4); }
+.glow-box-gold   { box-shadow: 0 0 18px rgba(226, 184, 87, 0.15); }
+
+/* ============================================================
+   PULSE GOLD ANIMATION
+   ============================================================ */
+@keyframes pulse-gold {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+.animate-pulse-gold { animation: pulse-gold 2.5s ease-in-out infinite; }
+
+/* ============================================================
+   FADE-IN ANIMATION
+   ============================================================ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn { animation: fadeIn 0.25s ease-out forwards; }
+
+/* ============================================================
+   INDIAN GOV + MNC FUSION DESIGN SYSTEM
+   ============================================================ */
+.tiranga-ribbon {
+  height: 2.5px;
+  width: 100%;
+  background: linear-gradient(90deg, 
+    #FF9933 0%, #FF9933 33.33%, 
+    #FFFFFF 33.33%, #FFFFFF 66.66%, 
+    #138808 66.66%, #138808 100%
+  );
+  box-shadow: 0 0 12px rgba(255, 153, 51, 0.35), 0 0 12px rgba(19, 136, 8, 0.35);
+}
+
+.chakra-spin {
+  animation: chakra-spin 25s linear infinite;
+  transform-origin: center;
+}
+@keyframes chakra-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.fusion-panel {
+  background: linear-gradient(135deg, rgba(15, 27, 53, 0.95) 0%, rgba(10, 18, 38, 0.97) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.24);
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 
+    0 12px 40px -8px rgba(0, 0, 0, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.fusion-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 16px; height: 16px;
+  border-top: 2px solid #38BDF8;
+  border-left: 2px solid #38BDF8;
+  border-top-left-radius: 10px;
+  pointer-events: none;
+}
+
+.fusion-panel::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 16px; height: 16px;
+  border-bottom: 2px solid #10B981;
+  border-right: 2px solid #10B981;
+  border-bottom-right-radius: 10px;
+  pointer-events: none;
+}
+
+.ashoka-seal-badge {
+  background: radial-gradient(circle, rgba(18, 34, 68, 0.95) 0%, rgba(7, 13, 28, 0.98) 75%);
+  border: 1.5px solid rgba(226, 184, 87, 0.38);
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.16), inset 0 0 14px rgba(226, 184, 87, 0.1);
+}
+
+.text-saffron { color: #FF9933; }
+.bg-saffron { background-color: #FF9933; }
+.border-saffron { border-color: rgba(255, 153, 51, 0.4); }
+.glow-saffron { text-shadow: 0 0 12px rgba(255, 153, 51, 0.5); }
+
+.text-india-green { color: #10B981; }
+.glow-india-green { text-shadow: 0 0 12px rgba(16, 185, 129, 0.5); }
+
+/* Tactical HUD Radar Scanline */
+@keyframes radar-scan {
+  0% { transform: translateY(-50px); opacity: 0; }
+  20% { opacity: 0.45; }
+  80% { opacity: 0.45; }
+  100% { transform: translateY(750px); opacity: 0; }
+}
+
+.radar-scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.1), #00E5FF, #10B981, rgba(0, 229, 255, 0.1), transparent);
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.8), 0 0 32px rgba(16, 185, 129, 0.4);
+  animation: radar-scan 7s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Shimmer Animation for Badges and Cyber Buttons */
+@keyframes border-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.shimmer-badge {
+  background: linear-gradient(90deg, #F43F5E, #EC4899, #8B5CF6, #00E5FF, #F43F5E);
+  background-size: 300% 300%;
+  animation: border-shimmer 4s ease infinite;
+}
+
+/* Tactical HUD Canvas Corner Brackets */
+.corner-bracket-tl {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 16px;
+  height: 16px;
+  border-top: 2px solid rgba(0, 229, 255, 0.7);
+  border-left: 2px solid rgba(0, 229, 255, 0.7);
+  pointer-events: none;
+  z-index: 15;
+}
+
+.corner-bracket-tr {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 16px;
+  height: 16px;
+  border-top: 2px solid rgba(0, 229, 255, 0.7);
+  border-right: 2px solid rgba(0, 229, 255, 0.7);
+  pointer-events: none;
+  z-index: 15;
+}
+
+.corner-bracket-bl {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 16px;
+  height: 16px;
+  border-bottom: 2px solid rgba(16, 185, 129, 0.7);
+  border-left: 2px solid rgba(16, 185, 129, 0.7);
+  pointer-events: none;
+  z-index: 15;
+}
+
+.corner-bracket-br {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 16px;
+  height: 16px;
+  border-bottom: 2px solid rgba(16, 185, 129, 0.7);
+  border-right: 2px solid rgba(16, 185, 129, 0.7);
+  pointer-events: none;
+  z-index: 15;
+}
+

@@ -1,0 +1,343 @@
+{
+  "services": {
+    "health": {
+      "status": "PASS",
+      "code": 200,
+      "latency_ms": 37.92,
+      "service_status": "HEALTHY",
+      "components": {
+        "relational_database": {
+          "status": "HEALTHY",
+          "engine": "sqlite",
+          "url": "sqlite:///./data/darktrace.db"
+        },
+        "graph_database": {
+          "status": "STANDBY",
+          "mode": "Embedded In-Memory NetworkX Graph Engine"
+        },
+        "cache_broker": {
+          "status": "HEALTHY",
+          "type": "In-Memory Cache"
+        }
+      }
+    }
+  },
+  "auth": {
+    "investigator": {
+      "status": "PASS",
+      "role": "ANALYST",
+      "latency_ms": 654.71
+    },
+    "admin": {
+      "status": "PASS",
+      "role": "ADMIN",
+      "latency_ms": 651.19
+    },
+    "supervisor": {
+      "status": "PASS",
+      "role": "SUPERVISOR",
+      "latency_ms": 581.0
+    },
+    "viewer": {
+      "status": "PASS",
+      "role": "VIEWER",
+      "latency_ms": 547.69
+    },
+    "invalid_credentials_rejected": {
+      "status": "PASS",
+      "code": 401
+    }
+  },
+  "roles": {
+    "unauthenticated_denied": {
+      "status": "PASS",
+      "code": 401
+    }
+  },
+  "api": {
+    "Dashboard Stats": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/dashboard/stats",
+      "code": 200,
+      "latency_ms": 101.7
+    },
+    "Dashboard Activity": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/dashboard/recent-activity",
+      "code": 200,
+      "latency_ms": 281.56
+    },
+    "Actors List": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/actors",
+      "code": 200,
+      "latency_ms": 359.69
+    },
+    "Actor Filter (CRITICAL)": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/actors?threat_level=CRITICAL",
+      "code": 200,
+      "latency_ms": 65.3
+    },
+    "Actor Detail (ACT-0042)": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/actors/ACT-0042",
+      "code": 200,
+      "latency_ms": 75.44
+    },
+    "Actor Invalid ID (404 check)": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/actors/INVALID-ACTOR-999",
+      "code": 404,
+      "latency_ms": 22.92
+    },
+    "Personas List": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/personas",
+      "code": 200,
+      "latency_ms": 113.17
+    },
+    "Persona Detail (PER-0042A)": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/personas/PER-0042A",
+      "code": 200,
+      "latency_ms": 51.56
+    },
+    "Intelligence Records": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/intelligence",
+      "code": 200,
+      "latency_ms": 43.08
+    },
+    "Intelligence Autonomous Crawl": {
+      "status": "PASS",
+      "method": "POST",
+      "path": "/api/intelligence/crawl",
+      "code": 200,
+      "latency_ms": 48.21
+    },
+    "Evidence List": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/evidence",
+      "code": 200,
+      "latency_ms": 42.2
+    },
+    "Evidence Detail (EVID-0001)": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/evidence/EVID-0001",
+      "code": 200,
+      "latency_ms": 29.07
+    },
+    "Evidence Integrity Verify": {
+      "status": "PASS",
+      "method": "POST",
+      "path": "/api/evidence/EVID-0001/verify",
+      "code": 200,
+      "latency_ms": 30.89
+    },
+    "Graph Subgraph (ACT-0042)": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/graph/ACT-0042",
+      "code": 200,
+      "latency_ms": 79.86
+    },
+    "Graph Attribution Path": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/graph/attribution-path?source_id=PER-0042A&target_id=PER-0042B",
+      "code": 200,
+      "latency_ms": 111.24
+    },
+    "Graph Clusters": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/graph/clusters",
+      "code": 200,
+      "latency_ms": 141.92
+    },
+    "Timeline List": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/timeline",
+      "code": 200,
+      "latency_ms": 29.38
+    },
+    "Timeline Actor (ACT-0042)": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/timeline/ACT-0042",
+      "code": 200,
+      "latency_ms": 36.21
+    },
+    "Attribution Assessments": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/attribution/ACT-0042",
+      "code": 200,
+      "latency_ms": 29.03
+    },
+    "Analytics RAG Assistant": {
+      "status": "PASS",
+      "method": "POST",
+      "path": "/api/analytics/assistant",
+      "code": 200,
+      "latency_ms": 20.6
+    },
+    "Analytics Stylometry Analyze": {
+      "status": "PASS",
+      "method": "POST",
+      "path": "/api/analytics/stylometry/analyze",
+      "code": 200,
+      "latency_ms": 18.7
+    },
+    "Analytics Stylometry Compare": {
+      "status": "PASS",
+      "method": "POST",
+      "path": "/api/analytics/stylometry/compare",
+      "code": 200,
+      "latency_ms": 26.71
+    },
+    "Analytics Diurnal Timezone": {
+      "status": "PASS",
+      "method": "POST",
+      "path": "/api/analytics/stylometry/timezone",
+      "code": 200,
+      "latency_ms": 20.54
+    },
+    "Search Query": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/search?q=ShadowX",
+      "code": 200,
+      "latency_ms": 92.33
+    },
+    "Reports List": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/reports",
+      "code": 200,
+      "latency_ms": 31.62
+    },
+    "Report Generation (ACT-0042)": {
+      "status": "PASS",
+      "method": "POST",
+      "path": "/api/reports/generate",
+      "code": 200,
+      "latency_ms": 118.61
+    },
+    "Audit Logs (Admin)": {
+      "status": "PASS",
+      "method": "GET",
+      "path": "/api/audit",
+      "code": 200,
+      "latency_ms": 114.72
+    },
+    "Dataset CSV Upload": {
+      "status": "PASS",
+      "code": 200,
+      "resp": {
+        "status": "INGESTION_COMPLETED",
+        "filename": "audit_upload.csv",
+        "records_ingested": 1,
+        "workflow": "UPLOAD -> VALIDATE -> PARSE -> NORMALIZE -> EXTRACT -> STORE",
+        "timestamp": "2026-09-26T14:49:16.044323"
+      }
+    }
+  },
+  "database_crud": {
+    "create": {
+      "code": 201,
+      "status": "PASS"
+    },
+    "read": {
+      "code": 200,
+      "status": "PASS"
+    },
+    "update_note": {
+      "code": 201,
+      "status": "PASS"
+    },
+    "delete": {
+      "code": 200,
+      "status": "PASS"
+    },
+    "verify_deleted": {
+      "code": 404,
+      "status": "PASS"
+    }
+  },
+  "security": {
+    "sqli_resistance": {
+      "status": "PASS",
+      "code": 200
+    },
+    "xss_resistance": {
+      "status": "PASS",
+      "code": 200
+    },
+    "cors_policy": {
+      "status": "PASS",
+      "headers": {
+        "date": "Sat, 26 Sep 2026 14:49:15 GMT",
+        "server": "uvicorn",
+        "allow": "GET",
+        "content-length": "31",
+        "content-type": "application/json",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-origin": "http://127.0.0.1:8000",
+        "vary": "Origin"
+      }
+    }
+  },
+  "performance": {
+    "Dashboard Stats": 101.7,
+    "Dashboard Activity": 281.56,
+    "Actors List": 359.69,
+    "Actor Filter (CRITICAL)": 65.3,
+    "Actor Detail (ACT-0042)": 75.44,
+    "Actor Invalid ID (404 check)": 22.92,
+    "Personas List": 113.17,
+    "Persona Detail (PER-0042A)": 51.56,
+    "Intelligence Records": 43.08,
+    "Intelligence Autonomous Crawl": 48.21,
+    "Evidence List": 42.2,
+    "Evidence Detail (EVID-0001)": 29.07,
+    "Evidence Integrity Verify": 30.89,
+    "Graph Subgraph (ACT-0042)": 79.86,
+    "Graph Attribution Path": 111.24,
+    "Graph Clusters": 141.92,
+    "Timeline List": 29.38,
+    "Timeline Actor (ACT-0042)": 36.21,
+    "Attribution Assessments": 29.03,
+    "Analytics RAG Assistant": 20.6,
+    "Analytics Stylometry Analyze": 18.7,
+    "Analytics Stylometry Compare": 26.71,
+    "Analytics Diurnal Timezone": 20.54,
+    "Search Query": 92.33,
+    "Reports List": 31.62,
+    "Report Generation (ACT-0042)": 118.61,
+    "Audit Logs (Admin)": 114.72
+  },
+  "data_consistency": {},
+  "e2e_journey": {
+    "status": "PASS",
+    "step_a_actor_dossier": true,
+    "step_b_attribution_retrieval": true,
+    "step_c_analyst_review": true,
+    "step_d_evidentiary_bridge": true,
+    "step_e_pdf_generation": true,
+    "step_f_pdf_download": true
+  }
+}

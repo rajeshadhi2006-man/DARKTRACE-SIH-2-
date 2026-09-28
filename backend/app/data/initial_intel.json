@@ -1,0 +1,395 @@
+[
+  {
+    "id": "ACTOR-001",
+    "primary_handle": "ShadowBroker_X",
+    "aliases": ["KryptonGhost", "x_shadow_99", "SpectreAccess"],
+    "category": "Initial Access Broker",
+    "attribution_confidence": 94,
+    "threat_level": "CRITICAL",
+    "status": "ACTIVE",
+    "first_seen": "2023-04-12",
+    "last_seen": "2026-09-24",
+    "sources": ["BreachForums", "Exploit.in", "Dread"],
+    "pgp_keys": [
+      {
+        "key_id": "9B4C7E12",
+        "fingerprint": "7C8B9A0D1E2F3A4B5C6D7E8F9A0B1C2D3E4F5A6B",
+        "email_identity": "shadowbroker_x@onionmail.org",
+        "bits": 4096,
+        "created_date": "2023-04-10"
+      }
+    ],
+    "crypto_wallets": [
+      {
+        "currency": "BTC",
+        "address": "bc1q7x4z0y2e8k5tq9m3j6p1c8u4a7r9w2v5s8x1y4",
+        "first_seen": "2023-05-18",
+        "total_received": "34.82 BTC",
+        "cluster_tags": ["BreachForums Escrow", "Wasabi Mixer Hop"]
+      },
+      {
+        "currency": "XMR",
+        "address": "888tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkFxbTNsLTGnqFTv28RcyR44FKa6KN22gqEBCPr4FnElzqY2R44FKa6KN22",
+        "first_seen": "2023-11-02",
+        "total_received": "410.5 XMR",
+        "cluster_tags": ["Dread Verified Vendor"]
+      }
+    ],
+    "communications": [
+      {
+        "platform": "Jabber/XMPP",
+        "identifier": "shadowbroker@exploit.im"
+      },
+      {
+        "platform": "Tox",
+        "identifier": "76A820E909B98374827104928371928371928374910283749102837491028374102938475610"
+      },
+      {
+        "platform": "Telegram",
+        "identifier": "@shadow_access_desk"
+      }
+    ],
+    "associated_onions": [
+      "dreadmarket736xqwp4m7vylz4k5j6r4r2dff3b3e2q9d8.onion"
+    ],
+    "real_world_suspect": {
+      "probable_legal_name": "Andrei M. Popescu",
+      "suspected_country": "Romania",
+      "suspected_city": "Bucharest",
+      "probable_timezone": "UTC+02:00 (EET / EEST)",
+      "clearnet_accounts": ["github.com/spectre-sec-ro", "x.com/krypton_gh0st"],
+      "associated_ips": ["194.26.29.114", "82.79.110.45"],
+      "confidence_level": "High"
+    },
+    "sample_posts": [
+      "WTS fresh corporate domain admin access. Fortune 500 healthcare provider. Domain controller compromised, backup servers mapped. Starting bid 5 BTC. Escrow via Dread staff only!! Contact jabber with PGP.",
+      "New network access pack: 3x aerospace contractors, enterprise VPN credentials + RDP shells. Clean logs, FUD persistence. Price: 15k USD in XMR. No timewasters or lowballers. Escrow strictly mandatory.",
+      "Proof of access uploaded to priv8 leak server. Check SHA256 hashes before pinging on tox. All access guaranteed untouched for 48 hours."
+    ],
+    "active_hours_utc": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+    "summary": "High-profile Initial Access Broker supplying enterprise VPN, Citrix, and Active Directory access to tier-1 ransomware affiliates. Linked to Romanian infrastructure through Apache server-status leaks and PGP key reuse."
+  },
+  {
+    "id": "ACTOR-002",
+    "primary_handle": "CipherLock_Team",
+    "aliases": ["CryptLock_Admin", "LordVoldemort", "LockBit_Syndicate_Op"],
+    "category": "Ransomware Cartel",
+    "attribution_confidence": 98,
+    "threat_level": "CRITICAL",
+    "status": "ACTIVE",
+    "first_seen": "2022-09-01",
+    "last_seen": "2026-09-25",
+    "sources": ["RAMP", "Exploit.in", "LockBit Leaks Portal", "Dread"],
+    "pgp_keys": [
+      {
+        "key_id": "D7E6F5A4",
+        "fingerprint": "F3A2B1C0D9E8F7A6B5C4D3E2F1A0B9C8D7E6F5A4",
+        "email_identity": "lockbit_press@onionmail.org",
+        "bits": 4096,
+        "created_date": "2022-08-28"
+      }
+    ],
+    "crypto_wallets": [
+      {
+        "currency": "BTC",
+        "address": "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+        "first_seen": "2022-10-15",
+        "total_received": "189.4 BTC",
+        "cluster_tags": ["Ransomware Extortion Payout", "Selectel Gateway"]
+      },
+      {
+        "currency": "ETH",
+        "address": "0x71C8360f3E282935663673F1D9970bfA25dc8b46",
+        "first_seen": "2023-01-20",
+        "total_received": "450.0 ETH",
+        "cluster_tags": ["Tornado Cash Liquidity Router"]
+      }
+    ],
+    "communications": [
+      {
+        "platform": "Tox",
+        "identifier": "lockbit3supp@tox.chat.service"
+      },
+      {
+        "platform": "Telegram",
+        "identifier": "@lockbit_official_channel"
+      }
+    ],
+    "associated_onions": [
+      "lockbit3leakszqwertyuiopasdfghjklzxcvbnm123456789.onion"
+    ],
+    "real_world_suspect": {
+      "probable_legal_name": "Dmitry V. Khoroshev (Attributed)",
+      "suspected_country": "Russia",
+      "suspected_city": "Saint Petersburg",
+      "probable_timezone": "UTC+03:00 (MSK)",
+      "clearnet_accounts": ["vk.com/dima_spb_tech", "t.me/lockbit_press"],
+      "associated_ips": ["91.240.118.89", "185.220.101.5"],
+      "confidence_level": "Confirmed"
+    },
+    "sample_posts": [
+      "ATTENTION: All management of Target Corporation. Your data has been encrypted using military grade AES-256. If ransom of 2,500,000 USD is not paid within 72 hours, all customer PII, executive emails, and financial audits will be published on our mirror!!",
+      "We recruit reliable affiliates with access to enterprise networks (revenue > $100M). 80/20 split in your favor. Automated builder, FUD decryptor, fast chat support. Do not test our patience.",
+      "Timer updated. Remaining time: 24 hours. Decryptor trial ready for 1 non-essential database file. Contact operator via tox."
+    ],
+    "active_hours_utc": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+    "summary": "Prolific Ransomware-as-a-Service operator conducting dual-extortion attacks against multinational enterprises. Unmasked via exposed phpinfo endpoints, OpenSSH server fingerprint leaks, and blockchain clustering to Russian hosting networks."
+  },
+  {
+    "id": "ACTOR-003",
+    "primary_handle": "SilkRoad_Phoenix",
+    "aliases": ["NoxiousAlchemist", "ViperVendor", "DutchPureLab"],
+    "category": "Darknet Vendor",
+    "attribution_confidence": 92,
+    "threat_level": "HIGH",
+    "status": "ACTIVE",
+    "first_seen": "2021-03-15",
+    "last_seen": "2026-09-22",
+    "sources": ["Bohemia", "Archetyp", "Dread"],
+    "pgp_keys": [
+      {
+        "key_id": "2E3F4A5B",
+        "fingerprint": "6B7A8C9D0E1F2A3B4C5D6E7F8A9B0C1D2E3F4A5B",
+        "email_identity": "viper_vendor@secmail.pro",
+        "bits": 4096,
+        "created_date": "2021-03-11"
+      }
+    ],
+    "crypto_wallets": [
+      {
+        "currency": "BTC",
+        "address": "bc1q9v3k5w8p2n7t4j1m6r9s2d5x8u1y4a7c0e3g6",
+        "first_seen": "2021-04-01",
+        "total_received": "98.14 BTC",
+        "cluster_tags": ["Bohemia Escrow Payout", "CoinJoin Consolidation"]
+      },
+      {
+        "currency": "XMR",
+        "address": "48edfHu7V9Z84YzzMa6fUueoXo6dHkn8NxDuYavj83284uhasdf98327498234",
+        "first_seen": "2021-06-19",
+        "total_received": "1840 XMR",
+        "cluster_tags": ["Stealth Address Ring"]
+      }
+    ],
+    "communications": [
+      {
+        "platform": "Session",
+        "identifier": "05a91b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b"
+      },
+      {
+        "platform": "Jabber/XMPP",
+        "identifier": "viper_lab@creep.im"
+      }
+    ],
+    "associated_onions": [
+      "bohemiamkt993xqwq004mka1992019alzkqpwq29291823.onion"
+    ],
+    "real_world_suspect": {
+      "probable_legal_name": "Lukas van den Berg",
+      "suspected_country": "Netherlands",
+      "suspected_city": "Rotterdam",
+      "probable_timezone": "UTC+01:00 (CET / CEST)",
+      "clearnet_accounts": ["wickr:dutch_pure", "proton:lukas_vdb_tech"],
+      "associated_ips": ["45.142.214.205", "185.107.56.22"],
+      "confidence_level": "High"
+    },
+    "sample_posts": [
+      "Top grade 98% laboratory tested crystal product back in stock. Stealth vacuum sealed with decoying Mylar packaging. Next-day domestic shipping across EU. Always encrypt your delivery details with our PGP key!!",
+      "Resupply announcement: High purity batches arriving Wednesday. Bulk orders over 500g qualify for 15% discount. Only XMR accepted for escrow release. Check Dread review thread for vendor vouches.",
+      "Reminder to all buyers: Do not finalize early unless agreed in private message. Postal stealth rated 99.8% customs bypass."
+    ],
+    "active_hours_utc": [9, 10, 11, 14, 15, 16, 17, 21, 22],
+    "summary": "Large-scale commercial vendor operating automated storefronts across Archetyp and Bohemia. Identified via exposed git repositories and wildcard SSL certificates matching clearnet supply-chain domains."
+  },
+  {
+    "id": "ACTOR-004",
+    "primary_handle": "FinLaunder_Nexus",
+    "aliases": ["CoinTornado_Ops", "GhostWasher", "XMR_Mixer_Bot"],
+    "category": "Money Laundering Syndicate",
+    "attribution_confidence": 88,
+    "threat_level": "HIGH",
+    "status": "ACTIVE",
+    "first_seen": "2022-01-10",
+    "last_seen": "2026-09-21",
+    "sources": ["Hydra Redux", "Dread", "CryptBB"],
+    "pgp_keys": [
+      {
+        "key_id": "D6E7F8A9",
+        "fingerprint": "99A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6E7F8A9",
+        "email_identity": "cointornado@onionmail.org",
+        "bits": 4096,
+        "created_date": "2022-01-08"
+      }
+    ],
+    "crypto_wallets": [
+      {
+        "currency": "BTC",
+        "address": "bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq",
+        "first_seen": "2022-01-12",
+        "total_received": "840.50 BTC",
+        "cluster_tags": ["High-Volume Mixing Cluster", "Bulletproof Host"]
+      },
+      {
+        "currency": "USDT",
+        "address": "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t_suspect_cluster",
+        "first_seen": "2022-08-14",
+        "total_received": "14,500,000 USDT",
+        "cluster_tags": ["Tron Darknet OTC Desk"]
+      }
+    ],
+    "communications": [
+      {
+        "platform": "Telegram",
+        "identifier": "@hydra_core_desk"
+      },
+      {
+        "platform": "Jabber/XMPP",
+        "identifier": "tornado_escrow@xmpp.is"
+      }
+    ],
+    "associated_onions": [
+      "hydraex7vbb45m839xplkwqqe2m910a8b7c6d5e4f3a2b1c9.onion"
+    ],
+    "real_world_suspect": {
+      "probable_legal_name": "Igor C. Moraru",
+      "suspected_country": "Moldova",
+      "suspected_city": "Chisinau",
+      "probable_timezone": "UTC+02:00 (EET)",
+      "clearnet_accounts": ["exchanger-bestchange-node99", "telegram:@cointornado_bot"],
+      "associated_ips": ["185.196.220.73", "193.106.191.12"],
+      "confidence_level": "Moderate"
+    },
+    "sample_posts": [
+      "Automated crypto tumbler service 24/7. Clean your dirty BTC/ETH into untraceable XMR or fresh clean coins. Low 1.5% commission fee. Zero logs policy, automatic purge after 6 confirmations.",
+      "High volume OTC cashout service for ransomware affiliates and carders. Cash delivery in Dubai, Istanbul, and Chisinau. Bank wire transfers to EU SEPA accounts available.",
+      "API integration available for darknet market checkouts. Instant tumbling with randomized delay algorithms to break blockchain heuristic clustering."
+    ],
+    "active_hours_utc": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+    "summary": "Dark web financial crime facilitator running high-throughput mixing and OTC cashout pipelines. Unmasked via favicon MurmurHash3 cross-correlation and SSH host fingerprinting to AlexHost infrastructure in Moldova."
+  },
+  {
+    "id": "ACTOR-005",
+    "primary_handle": "DarkZero_Root",
+    "aliases": ["ZeroDay_Broker", "0xNullPointer", "ExploitCrafter"],
+    "category": "Exploit Kit & Weaponization",
+    "attribution_confidence": 91,
+    "threat_level": "CRITICAL",
+    "status": "ACTIVE",
+    "first_seen": "2023-08-01",
+    "last_seen": "2026-09-25",
+    "sources": ["Exploit.in", "XSS.is", "BreachForums"],
+    "pgp_keys": [
+      {
+        "key_id": "4C5D6E7F",
+        "fingerprint": "1A2B3C4D5E6F7A8B9C0D1E2F3A4B5C6D7E8F9A0B",
+        "email_identity": "0xnull@cock.li",
+        "bits": 4096,
+        "created_date": "2023-07-28"
+      }
+    ],
+    "crypto_wallets": [
+      {
+        "currency": "BTC",
+        "address": "3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy",
+        "first_seen": "2023-08-15",
+        "total_received": "52.3 BTC",
+        "cluster_tags": ["Zero-Day Escrow Pool"]
+      },
+      {
+        "currency": "XMR",
+        "address": "84BxWqV8p3Qk2A9X7mF6c1D4Z8sN0rL2vY5eT3uH1iO9pM4wK6jG8aC2xS5dB7",
+        "first_seen": "2023-09-01",
+        "total_received": "920 XMR",
+        "cluster_tags": ["Exploit.in VIP Wallet"]
+      }
+    ],
+    "communications": [
+      {
+        "platform": "Tox",
+        "identifier": "0F8E7D6C5B4A392817263544536271829304958671625344352617283940516273849501"
+      },
+      {
+        "platform": "Jabber/XMPP",
+        "identifier": "zeroday_broker@exploit.im"
+      }
+    ],
+    "associated_onions": [
+      "dreadmarket736xqwp4m7vylz4k5j6r4r2dff3b3e2q9d8.onion"
+    ],
+    "real_world_suspect": {
+      "probable_legal_name": "Maximilian R. Weber",
+      "suspected_country": "Germany",
+      "suspected_city": "Frankfurt",
+      "probable_timezone": "UTC+01:00 (CET / CEST)",
+      "clearnet_accounts": ["github.com/max-binary-research", "gitlab.sec-labs.de"],
+      "associated_ips": ["185.122.54.19", "85.214.132.88"],
+      "confidence_level": "High"
+    },
+    "sample_posts": [
+      "0day RCE in popular enterprise firewall appliances (FortiGate / Palo Alto). Remote unauthenticated root shell over SSL VPN port 443. PoC video available for serious buyers. Asking price: 80,000 USD.",
+      "Priv8 FUD bypass for Windows Defender, CrowdStrike, and SentinelOne. In-memory PE execution with direct syscalls, unhooking ntdll.dll. Monthly subscription 1500 XMR with free stub regenerator.",
+      "Vulnerability advisory for Chrome V8 engine sandbox escape ready. Exclusive sale to 1 buyer only. Tested against version 128.0. Escrow via forum administrator."
+    ],
+    "active_hours_utc": [8, 9, 10, 11, 13, 14, 15, 16, 17, 18],
+    "summary": "Elite binary exploitation author vending zero-day remote code execution chains and FUD crypters. De-anonymized through code comments in private repositories, GPG key crossovers, and Hetzner server telemetry."
+  },
+  {
+    "id": "ACTOR-006",
+    "primary_handle": "CarderEmpire_UA",
+    "aliases": ["GoldBin_CC", "StolenTrackz", "CVV_Kingpin"],
+    "category": "Carding Syndicate",
+    "attribution_confidence": 85,
+    "threat_level": "HIGH",
+    "status": "ACTIVE",
+    "first_seen": "2022-05-14",
+    "last_seen": "2026-09-20",
+    "sources": ["Club2CRD", "Dread", "Telegram Carding Hubs"],
+    "pgp_keys": [
+      {
+        "key_id": "8A9B0C1D",
+        "fingerprint": "5F6E7D8C9B0A1B2C3D4E5F6A7B8C9D0E1F2A3B4C",
+        "email_identity": "carderempire@proton.me",
+        "bits": 4096,
+        "created_date": "2022-05-10"
+      }
+    ],
+    "crypto_wallets": [
+      {
+        "currency": "BTC",
+        "address": "bc1q87x923km4plzx5678qwerty9876543210asdf",
+        "first_seen": "2022-05-20",
+        "total_received": "67.4 BTC",
+        "cluster_tags": ["Automated CC Storefront"]
+      }
+    ],
+    "communications": [
+      {
+        "platform": "Telegram",
+        "identifier": "@goldbin_cc_bot"
+      },
+      {
+        "platform": "Jabber/XMPP",
+        "identifier": "goldbin@jabber.ru"
+      }
+    ],
+    "associated_onions": [
+      "bohemiamkt993xqwq004mka1992019alzkqpwq29291823.onion"
+    ],
+    "real_world_suspect": {
+      "probable_legal_name": "Bogdan S. Shevchenko",
+      "suspected_country": "Ukraine / Bulgaria",
+      "suspected_city": "Varna",
+      "probable_timezone": "UTC+02:00 (EET)",
+      "clearnet_accounts": ["carder-shop.cc", "t.me/goldbin_support"],
+      "associated_ips": ["77.88.21.90", "94.156.65.11"],
+      "confidence_level": "Moderate"
+    },
+    "sample_posts": [
+      "MASSIVE UPDATE: 25,000 fresh USA & UK high balance credit card dumps with full CVV & Billing addresses. Valid rate tested 94% with live checker. Bulk discounts for verified resellers.",
+      "POS terminal skimmed dumps Track 1 & Track 2 with PIN codes from European ATM networks. Fast cashout scripts included. Instant automatic checkout in our bot.",
+      "Refund policy: Invalid cards replaced automatically within 15 minutes of purchase. Always check bin before ordering."
+    ],
+    "active_hours_utc": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+    "summary": "Operator of automated carding storefronts and POS skimming operations. Correlated via Telegram bot webhook infrastructure and cross-referenced with Bulgarian bulletproof VPS IPs."
+  }
+]

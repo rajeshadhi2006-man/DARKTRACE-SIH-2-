@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHADOW-DEANON // Dark Web Threat Actor De-Anonymization Platform</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Vis-Network for Graph Visualization -->
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  
+  <!-- Chart.js for Stylometric Radar & Analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top App Header -->
+  <header class="app-header">
+    <div class="brand-section">
+      <div class="brand-icon">
+        <i class="fa-solid fa-user-secret"></i>
+      </div>
+      <div>
+        <div class="brand-title">SHADOW-DEANON</div>
+        <div class="brand-subtitle">Dark Web Threat Actor De-Anonymization Engine</div>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <div class="status-badge">
+        <div class="pulse-dot"></div>
+        <span>AUTONOMOUS INGESTION ACTIVE</span>
+      </div>
+
+      <button id="btn-trigger-crawler" class="btn btn-emerald" title="Trigger an autonomous darknet crawl & entity extraction cycle">
+        <i class="fa-solid fa-satellite-dish"></i>
+        <span>Trigger Crawl Round</span>
+      </button>
+
+      <div style="display:flex; gap:6px;">
+        <button id="btn-export-csv" class="btn btn-outline" title="Export indexed intelligence as CSV">
+          <i class="fa-solid fa-file-csv"></i> CSV
+        </button>
+        <button id="btn-export-json" class="btn btn-outline" title="Export raw intelligence as JSON">
+          <i class="fa-solid fa-file-code"></i> JSON
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="app-nav">
+    <div class="nav-tab active" data-tab="tab-dashboard">
+      <i class="fa-solid fa-chart-line"></i> Intelligence Dashboard
+    </div>
+    <div class="nav-tab" data-tab="tab-graph">
+      <i class="fa-solid fa-diagram-project"></i> Cross-Marketplace Graph
+    </div>
+    <div class="nav-tab" data-tab="tab-recon">
+      <i class="fa-solid fa-server"></i> Tor Infra De-Cloaker
+    </div>
+    <div class="nav-tab" data-tab="tab-stylometry">
+      <i class="fa-solid fa-brain"></i> AI Stylometric Profiler
+    </div>
+    <div class="nav-tab" data-tab="tab-dossiers">
+      <i class="fa-solid fa-id-card-clip"></i> Threat Actor Dossiers
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="app-content">
+
+    <!-- TAB 1: INTELLIGENCE DASHBOARD -->
+    <div id="tab-dashboard" class="tab-pane active">
+      <!-- KPI Banner -->
+      <div class="kpi-grid">
+        <div class="glass-panel kpi-card">
+          <div class="kpi-label">Indexed Threat Actors</div>
+          <div class="kpi-val" id="stat-actors">--</div>
+          <div class="kpi-sub">Across Dread, Exploit, BreachForums</div>
+        </div>
+        <div class="glass-panel kpi-card emerald">
+          <div class="kpi-label">Monitored Crypto Wallets</div>
+          <div class="kpi-val" id="stat-wallets">--</div>
+          <div class="kpi-sub">BTC, XMR, ETH, USDT Clusters</div>
+        </div>
+        <div class="glass-panel kpi-card amber">
+          <div class="kpi-label">PGP Fingerprints</div>
+          <div class="kpi-val" id="stat-pgp">--</div>
+          <div class="kpi-sub">Cryptographically Verified Keys</div>
+        </div>
+        <div class="glass-panel kpi-card purple">
+          <div class="kpi-label">Monitored Hidden Services</div>
+          <div class="kpi-val" id="stat-onions">--</div>
+          <div class="kpi-sub">Active Tor v3 Services</div>
+        </div>
+        <div class="glass-panel kpi-card red">
+          <div class="kpi-label">Unmasked Real Suspects</div>
+          <div class="kpi-val" id="stat-suspects">--</div>
+          <div class="kpi-sub">De-cloaked Physical Identities</div>
+        </div>
+      </div>
+
+      <!-- Search & Filters Toolbar -->
+      <div class="glass-panel toolbar">
+        <div class="toolbar-group">
+          <div class="search-input-wrap">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="filter-search" class="search-input" placeholder="Search handles, wallets, PGP, IPs, aliases...">
+          </div>
+          
+          <select id="filter-category" class="filter-select">
+            <option value="">All Threat Categories</option>
+            <option value="Ransomware">Ransomware Cartels</option>
+            <option value="Initial Access">Initial Access Brokers</option>
+            <option value="Darknet Vendor">Darknet Vendors</option>
+            <option value="Money Laundering">Money Laundering</option>
+            <option value="Exploit Kit">Exploit & Zero-Day</option>
+            <option value="Carding">Carding Syndicates</option>
+          </select>
+
+          <select id="filter-source" class="filter-select">
+            <option value="">All Intelligence Sources</option>
+            <option value="Dread">Dread Forum</option>
+            <option value="BreachForums">BreachForums</option>
+            <option value="Exploit.in">Exploit.in</option>
+            <option value="Bohemia">Bohemia Market</option>
+            <option value="Archetyp">Archetyp Market</option>
+          </select>
+        </div>
+
+        <div class="toolbar-group">
+          <label style="font-size: 12px; color: var(--text-muted); display:flex; align-items:center; gap:6px;">
+            <i class="fa-regular fa-calendar"></i> Timeline:
+            <input type="date" id="filter-date-start" class="filter-select" style="padding: 6px 10px;">
+            <span style="color:var(--text-dim);">to</span>
+            <input type="date" id="filter-date-end" class="filter-select" style="padding: 6px 10px;">
+          </label>
+          <button id="btn-reset-filters" class="btn btn-outline" style="padding: 7px 12px;">
+            <i class="fa-solid fa-rotate-left"></i> Reset
+          </button>
+        </div>
+      </div>
+
+      <!-- Dashboard Grid: Actor Table + Live Telemetry -->
+      <div class="dashboard-grid">
+        <!-- Actors Table Container -->
+        <div class="glass-panel" style="padding: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--accent-cyan); display: flex; align-items: center; gap: 8px;">
+              <i class="fa-solid fa-shield-virus"></i> De-Anonymized Threat Actor Directory
+            </h3>
+            <span id="actor-count-label" style="font-size: 12px; color: var(--text-dim);">Showing 0 actors</span>
+          </div>
+
+          <div class="table-container">
+            <table class="intel-table" id="actor-table">
+              <thead>
+                <tr>
+                  <th>Actor / Primary Handle</th>
+                  <th>Category</th>
+                  <th>Attribution Confidence</th>
+                  <th>Suspected Real Entity</th>
+                  <th>Origin IP / Country</th>
+                  <th>Last Observed</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="actor-table-body">
+                <!-- Dynamically Populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Live Dark Web Telemetry Feed -->
+        <div class="glass-panel">
+          <div class="telemetry-header">
+            <h3 style="font-size: 15px; font-weight: 700; color: #38bdf8; display:flex; align-items:center; gap:8px;">
+              <i class="fa-solid fa-wave-square"></i> Real-time Intercept Feed
+            </h3>
+            <span class="status-badge" style="padding: 3px 8px; font-size: 10px;">
+              <span class="pulse-dot"></span> LIVE
+            </span>
+          </div>
+
+          <div class="feed-list" id="telemetry-feed-container">
+            <!-- Dynamically Populated -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: ENTITY RELATIONSHIP GRAPH -->
+    <div id="tab-graph" class="tab-pane">
+      <div class="glass-panel" style="padding: 20px; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h3 style="font-size: 18px; font-weight: 700; color: var(--accent-cyan);">
+              <i class="fa-solid fa-diagram-project"></i> Cross-Marketplace Multi-Relational Graph
+            </h3>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">
+              Maps darknet handles, PGP fingerprints, cryptocurrency wallets, communications, Tor services, and clearnet origin IPs into an actionable attribution graph.
+            </p>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <select id="graph-focus-actor" class="filter-select">
+              <option value="">Full Underground Graph</option>
+              <!-- Populated dynamically -->
+            </select>
+            <button id="btn-fit-graph" class="btn btn-outline">
+              <i class="fa-solid fa-expand"></i> Center View
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-panel" style="position: relative; overflow: hidden;">
+        <div class="graph-legend">
+          <div class="legend-item"><span class="legend-circle" style="background:#ef4444;"></span> Threat Actor</div>
+          <div class="legend-item"><span class="legend-circle" style="background:#3b82f6;"></span> Forum Handle</div>
+          <div class="legend-item"><span class="legend-circle" style="background:#8b5cf6;"></span> Marketplace</div>
+          <div class="legend-item"><span class="legend-circle" style="background:#eab308;"></span> PGP Key</div>
+          <div class="legend-item"><span class="legend-circle" style="background:#10b981;"></span> Crypto Wallet</div>
+          <div class="legend-item"><span class="legend-circle" style="background:#06b6d4;"></span> Communication (Tox/Jabber)</div>
+          <div class="legend-item"><span class="legend-circle" style="background:#64748b;"></span> Tor Service (.onion)</div>
+          <div class="legend-item"><span class="legend-circle" style="background:#f97316;"></span> Origin Clearnet IP</div>
+          <div class="legend-item"><span class="legend-circle" style="background:#ec4899;"></span> Suspected Real Entity</div>
+        </div>
+
+        <div id="network-graph-container"></div>
+      </div>
+    </div>
+
+    <!-- TAB 3: TOR INFRA DE-CLOAKER -->
+    <div id="tab-recon" class="tab-pane">
+      <div class="glass-panel" style="padding: 20px; margin-bottom: 20px;">
+        <h3 style="font-size: 18px; font-weight: 700; color: var(--accent-cyan); display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-server"></i> Tor Hidden Service Misconfiguration & Origin Correlator
+        </h3>
+        <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">
+          Detects Apache <code>/server-status</code> leaks, SSL certificates with clearnet SANs, MurmurHash3 favicon matches, and OpenSSH banners to uncover underlying clearnet origin hosting servers.
+        </p>
+
+        <!-- Live Scan Input Box -->
+        <div style="display:flex; gap:12px; margin-top:16px;">
+          <input type="text" id="input-onion-scan" class="search-input" style="flex:1;" placeholder="Enter Tor v3 Hidden Service address (e.g. dreadmarket736xqwp4m7vylz4k5j6r4r2dff3b3e2q9d8.onion)">
+          <button id="btn-scan-onion" class="btn btn-primary">
+            <i class="fa-solid fa-radar"></i> De-Anonymize Hidden Service
+          </button>
+        </div>
+      </div>
+
+      <div class="recon-grid">
+        <!-- Target Selector Column -->
+        <div class="glass-panel" style="padding: 16px;">
+          <h4 style="font-size: 14px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px;">
+            Monitored Vulnerable Hidden Services
+          </h4>
+          <div class="target-list" id="recon-target-list">
+            <!-- Populated via API -->
+          </div>
+        </div>
+
+        <!-- Recon Findings & Evidence Box -->
+        <div class="glass-panel recon-result-box" id="recon-result-container">
+          <div style="text-align:center; padding: 60px 20px; color: var(--text-dim);">
+            <i class="fa-solid fa-magnifying-glass-location" style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;"></i>
+            <h3>Select a monitored hidden service or enter an onion address above</h3>
+            <p style="font-size: 13px; margin-top: 6px;">The engine will extract headers, examine TLS certificates, test for exposed server-status endpoints, and correlate clearnet origin IPs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: AI STYLOMETRIC PROFILER -->
+    <div id="tab-stylometry" class="tab-pane">
+      <div class="glass-panel" style="padding: 20px; margin-bottom: 24px;">
+        <h3 style="font-size: 18px; font-weight: 700; color: var(--accent-cyan); display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-brain"></i> AI Stylometric Persona Identification & Behavioral Profiler
+        </h3>
+        <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">
+          Extracts linguistic "writeprints", lexical diversity, punctuation entropy, invariant function word signatures, and character n-gram embeddings to attribute rebranded handles or anonymous extortion notes to known threat actors.
+        </p>
+      </div>
+
+      <div class="stylometry-grid">
+        <!-- Input & Feature Extraction -->
+        <div class="glass-panel" style="padding: 20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <label style="font-size: 13px; font-weight:600; color: var(--text-muted);">
+              Intercepted Darknet Post / Extortion Note / Chat Sample:
+            </label>
+            <div style="display:flex; gap:6px;">
+              <button id="btn-load-sample-1" class="btn btn-outline" style="padding: 4px 8px; font-size: 11px;">Sample: Access Broker</button>
+              <button id="btn-load-sample-2" class="btn btn-outline" style="padding: 4px 8px; font-size: 11px;">Sample: Ransomware</button>
+              <button id="btn-load-sample-3" class="btn btn-outline" style="padding: 4px 8px; font-size: 11px;">Sample: 0-Day Broker</button>
+            </div>
+          </div>
+
+          <textarea id="stylometry-input-text" class="textarea-custom" placeholder="Paste intercepted dark web forum post, Jabber message, ransom note, or marketplace listing here..."></textarea>
+
+          <div style="margin-top: 14px; display:flex; justify-content:space-between; align-items:center;">
+            <button id="btn-analyze-stylometry" class="btn btn-primary" style="padding: 10px 20px;">
+              <i class="fa-solid fa-fingerprint"></i> Compute AI Stylometric Attribution
+            </button>
+            <span id="stylometry-char-count" style="font-size: 11px; color: var(--text-dim);">0 characters</span>
+          </div>
+
+          <!-- Feature Breakdown Cards -->
+          <div style="margin-top: 20px;">
+            <h4 style="font-size: 12px; text-transform:uppercase; color:var(--text-muted); letter-spacing:1px; margin-bottom:10px;">
+              Extracted Linguistic Writeprint Metrics
+            </h4>
+            <div class="feature-pill-grid">
+              <div class="feature-pill">
+                <div class="feature-pill-title">Avg Sentence Length</div>
+                <div class="feature-pill-val" id="feat-sent-len">0.0</div>
+              </div>
+              <div class="feature-pill">
+                <div class="feature-pill-title">Avg Word Length</div>
+                <div class="feature-pill-val" id="feat-word-len">0.0</div>
+              </div>
+              <div class="feature-pill">
+                <div class="feature-pill-title">Type-Token Ratio (TTR)</div>
+                <div class="feature-pill-val" id="feat-lexical">0.0</div>
+              </div>
+              <div class="feature-pill">
+                <div class="feature-pill-title">Punctuation Entropy</div>
+                <div class="feature-pill-val" id="feat-punct">0.0</div>
+              </div>
+              <div class="feature-pill">
+                <div class="feature-pill-title">Uppercase Ratio</div>
+                <div class="feature-pill-val" id="feat-upper">0.0</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Candidate Attribution & Radar Visualizer -->
+        <div class="glass-panel" style="padding: 20px;">
+          <h4 style="font-size: 14px; font-weight: 700; color: var(--accent-cyan); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-crosshairs"></i> Top Attributed Threat Actor Matches
+          </h4>
+
+          <div id="stylometry-candidates-container" style="display:flex; flex-direction:column; gap:12px; margin-bottom: 20px;">
+            <div style="text-align:center; padding: 40px 10px; color: var(--text-dim); font-size:13px;">
+              Submit or paste text on the left to run AI stylometric match
+            </div>
+          </div>
+
+          <!-- Radar Chart Container -->
+          <div style="background: rgba(10, 15, 29, 0.7); border: 1px solid #334155; border-radius: 8px; padding: 16px;">
+            <h5 style="font-size: 12px; text-transform:uppercase; color:var(--text-muted); margin-bottom: 8px;">
+              Stylometric Feature Fingerprint Radar
+            </h5>
+            <div style="height: 240px; position:relative;">
+              <canvas id="stylometryRadarChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: ACTOR DOSSIERS -->
+    <div id="tab-dossiers" class="tab-pane">
+      <div class="glass-panel" style="padding: 20px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <h3 style="font-size: 18px; font-weight: 700; color: var(--accent-cyan);">
+            <i class="fa-solid fa-id-card-clip"></i> Comprehensive Forensic Threat Actor Dossiers
+          </h3>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">
+            Detailed profiles linking underground aliases, PGP public key rings, blockchain transactions, Tor infrastructure, and physical attribution links.
+          </p>
+        </div>
+      </div>
+
+      <div class="dossier-grid" id="dossiers-container">
+        <!-- Dynamically Populated Dossier Cards -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modal for Actor Detail Inspection -->
+  <div class="modal-overlay" id="actor-modal">
+    <div class="modal-container">
+      <button class="modal-close-btn" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
+      <div id="modal-content">
+        <!-- Dynamically Populated -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/tor_scanner.js"></script>
+  <script src="js/stylometry.js"></script>
+  <script src="js/exports.js"></script>
+</body>
+</html>
